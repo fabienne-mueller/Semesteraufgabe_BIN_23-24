@@ -1,26 +1,28 @@
 class Kaestchen {
   int[][] zahl;
-  int posX, posY, groesse, abstand;
+  int posX, posY;
+  final int groesse = 100;
+  final int abstand = 10;
 
   Kaestchen(int posX, int posY) {
     this.posX=posX;
     this.posY=posY;
-    this.groesse=100;
-    this.abstand=10;
     this.zahl = new int[groesseSpielfeld][groesseSpielfeld];
   }
 
-  void zeichneKaestchen() {
+  void zeichneKaestchen(int xStart, int yStart) {
     fill(#E56F6F);
     //kaestchenFarbe();
     noStroke();
-    rect(abstand + groesse/2+posX*(groesse+abstand), abstand + groesse/2+posY*(groesse+abstand), groesse, groesse, 20);
+    rect(abstand + groesse/2 + posX * (groesse + abstand) + xStart, abstand + groesse/2 + posY * (groesse + abstand) + yStart, groesse, groesse, 20);
+    
+    
   }
 
-  void fuelleKaestchen(int zahl) {
+  void fuelleKaestchen(int zahl,int xStart, int yStart) {
     fill(0);
     textSize(40);
-    text(zahl, abstand + groesse/2+posX*(groesse+abstand), abstand + groesse/2+posY*(groesse+abstand));
+    text(zahl, abstand + groesse/2+posX*(groesse+abstand) + xStart, abstand + groesse/2+posY*(groesse+abstand) + yStart);
   }
 }
 
